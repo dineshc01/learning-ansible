@@ -1,0 +1,10 @@
+-
+ name: Block port
+ hosts: web1
+ tasks:
+ - name: Block port 161/udp
+   firewalld:
+    port: 161/udp
+    permanent: yes
+    zone: block
+    state: absent

@@ -1,0 +1,14 @@
+-
+ name: Install and Start Firewalld
+ hosts: web1
+ tasks:
+ - name: Install Firewalld
+   yum:
+    name: firewalld
+    state: present
+
+ - name: Start Firewalld
+   systemd:
+    name: firewalld
+    state: started
+    enabled: yes 

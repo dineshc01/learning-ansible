@@ -1,0 +1,8 @@
+-
+ name: Create filesystem
+ hosts: node00
+ tasks:
+ - name: Create filesystem
+   filesystem:
+    fstype: ext4
+    dev: /dev/vg_sql/lv_data

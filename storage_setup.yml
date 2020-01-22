@@ -1,0 +1,19 @@
+-
+ name: Storage setup
+ hosts: node00
+ tasks:
+ - name: Create logical volume
+   lvol:
+    vg: vg_sql
+    lv: mssql_db
+    size: 1G
+ - name: create filesystem
+   filesystem:
+    dev: /dev/vg_sql/mssql_db
+    fstype: ext4
+ - name: mount file system
+   mount:
+    src: /dev/vg_sql/mssql_db
+    name: /mnt/mssql
+    fstype: ext4
+    state: mounted
